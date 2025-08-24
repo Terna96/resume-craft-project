@@ -43,10 +43,21 @@ All colors MUST be HSL.
     --resume-secondary: 204 94% 94%;
     --resume-accent: 142 76% 36%;
     --resume-neutral: 220 8.9% 46.1%;
+    --resume-creative: 280 87% 65%;
+    --resume-minimal: 215 15% 25%;
+    --resume-executive: 348 83% 47%;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(221 83% 43%));
     --gradient-secondary: linear-gradient(135deg, hsl(204 94% 94%), hsl(220 13% 91%));
+    --gradient-creative: linear-gradient(135deg, hsl(280 87% 65%), hsl(337 73% 64%));
+    --gradient-minimal: linear-gradient(135deg, hsl(215 15% 25%), hsl(215 15% 35%));
+    --gradient-executive: linear-gradient(135deg, hsl(348 83% 47%), hsl(348 83% 37%));
+    
+    /* Template Shadows */
+    --shadow-elegant: 0 20px 40px -12px hsl(var(--primary) / 0.25);
+    --shadow-soft: 0 8px 32px hsl(var(--muted-foreground) / 0.12);
+    --shadow-deep: 0 25px 50px -12px hsl(var(--foreground) / 0.25);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

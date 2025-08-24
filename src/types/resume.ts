@@ -4,6 +4,7 @@ export interface PersonalInfo {
   phone: string;
   address: string;
   summary: string;
+  profilePicture?: string;
 }
 
 export interface Education {
@@ -40,7 +41,7 @@ export interface ResumeData {
   education: Education[];
   workExperience: WorkExperience[];
   skills: Skill[];
-  templateId: 'modern' | 'professional';
+  templateId: 'modern' | 'professional' | 'creative' | 'minimal' | 'executive';
 }
 
-export type TemplateId = 'modern' | 'professional';
+export type TemplateId = 'modern' | 'professional' | 'creative' | 'minimal' | 'executive';

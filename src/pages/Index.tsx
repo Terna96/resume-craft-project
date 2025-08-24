@@ -2,7 +2,13 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useResume } from '@/hooks/useResume';
 import { ResumeForm } from '@/components/ResumeForm';
-import { ModernTemplate, ProfessionalTemplate } from '@/components/ResumeTemplates';
+import { 
+  ModernTemplate, 
+  ProfessionalTemplate, 
+  CreativeTemplate, 
+  MinimalTemplate, 
+  ExecutiveTemplate 
+} from '@/components/ResumeTemplates';
 import { PDFDownload } from '@/components/PDFDownload';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -61,6 +67,12 @@ const Index = () => {
     switch (resumeData.templateId) {
       case 'professional':
         return <ProfessionalTemplate data={resumeData} />;
+      case 'creative':
+        return <CreativeTemplate data={resumeData} />;
+      case 'minimal':
+        return <MinimalTemplate data={resumeData} />;
+      case 'executive':
+        return <ExecutiveTemplate data={resumeData} />;
       default:
         return <ModernTemplate data={resumeData} />;
     }
@@ -164,6 +176,24 @@ const Index = () => {
                           Professional Template
                         </div>
                       </SelectItem>
+                      <SelectItem value="creative">
+                        <div className="flex items-center">
+                          <Palette className="w-4 h-4 mr-2 text-purple-600" />
+                          Creative Template
+                        </div>
+                      </SelectItem>
+                      <SelectItem value="minimal">
+                        <div className="flex items-center">
+                          <Palette className="w-4 h-4 mr-2 text-slate-600" />
+                          Minimal Template
+                        </div>
+                      </SelectItem>
+                      <SelectItem value="executive">
+                        <div className="flex items-center">
+                          <Palette className="w-4 h-4 mr-2 text-red-600" />
+                          Executive Template
+                        </div>
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -193,10 +223,22 @@ const Index = () => {
                   Live preview of your resume
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="border rounded-lg overflow-auto max-h-[calc(100vh-250px)]">
-                  <div id="resume-preview" className="transform scale-75 origin-top-left">
-                    {renderTemplate()}
+              <CardContent className="p-2">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 shadow-inner">
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div 
+                      id="resume-preview" 
+                      className="transform scale-[0.7] origin-top-left overflow-hidden"
+                      style={{ 
+                        height: '842px',
+                        width: '595px'
+                      }}
+                    >
+                      {renderTemplate()}
+                    </div>
+                  </div>
+                  <div className="mt-4 text-center">
+                    <p className="text-xs text-muted-foreground">Live Preview • Updates in real-time</p>
                   </div>
                 </div>
               </CardContent>

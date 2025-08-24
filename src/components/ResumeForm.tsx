@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Plus, Trash2 } from 'lucide-react';
 import { ResumeData, PersonalInfo, Education, WorkExperience, Skill } from '@/types/resume';
+import { ProfilePictureUpload } from '@/components/ProfilePictureUpload';
 
 interface ResumeFormProps {
   data: ResumeData;
@@ -126,6 +127,15 @@ export function ResumeForm({ data, onChange }: ResumeFormProps) {
           <CardDescription>Basic information about yourself</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label>Profile Picture</Label>
+              <ProfilePictureUpload
+                value={data.personalInfo.profilePicture}
+                onChange={(value) => updatePersonalInfo('profilePicture', value || '')}
+              />
+            </div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="fullName">Full Name</Label>
